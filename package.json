@@ -1,8 +1,10 @@
 {
 	"name": "kbw-calendars",
 	"version": "2.1.2",
-	"license" : "MIT",
-	"dependencies": {},
+	"license": "MIT",
+	"dependencies": {
+		"ken.js": "^0.0.6"
+	},
 	"devDependencies": {
 		"grunt": "~0.4.2",
 		"grunt-contrib-clean": "~0.5.0",

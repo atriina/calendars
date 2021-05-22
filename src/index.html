@@ -70,5 +70,43 @@ $(function() {
 	<dt>Github</dt><dd><a href="https://github.com/kbwood/calendars">https://github.com/kbwood/calendars</a></dd>
 	<dt>Bower</dt><dd>kbw-calendars</dd>
 </dl>
+<fieldset>
+	<input type="text" id="ethiopianSingle" placeholder="ethiopian single">
+	<button type="button" onclick="$('#ethiopianSingle').val('')">clear</button> 
+	<input type="text" id="gregorianSingleOutput" placeholder="gregorian output" disabled>
+	<hr>
+	<input type="text" id="gregorianSingle" placeholder="gregorian single">
+	<button type="button" onclick="$('#gregorianSingle').val('')">clear</button> 
+	<input type="text" id="ethiopianSingleOutput" placeholder="ethiopian output" disabled>
+	<hr>
+	<link rel="stylesheet" type="text/css" href="css/jquery.calendars.picker.css"> 
+	<script type="text/javascript" src="js/jquery.calendars.picker.js"></script>
+	<script>
+		$('#ethiopianSingle, #ethiopianSingleOutput').calendarsPicker({
+			calendar: $.calendars.instance('ethiopian'),
+			useMouseWheel: false,
+			dateFormat: 'dd MM(mm), YYYY'
+		});
+		$('#gregorianSingle, #gregorianSingleOutput').calendarsPicker({
+			calendar: $.calendars.instance(),
+			useMouseWheel: false,
+			dateFormat: 'dd MM(mm), YYYY'
+		});
+		$('#ethiopianSingle').change(function() {
+			var dates = $(this).calendarsPicker('getDate')
+			var date = dates[0]
+			var jsdate = date.toJSDate()
+			var newdate = $.calendars.instance().fromJSDate(jsdate)
+			$('#gregorianSingleOutput').calendarsPicker('setDate', newdate)
+		})
+		$('#gregorianSingle').change(function() {
+			var dates = $(this).calendarsPicker('getDate')
+			var date = dates[0]
+			var jsdate = date.toJSDate()
+			var newdate = $.calendars.instance('ethiopian').fromJSDate(jsdate)
+			$('#ethiopianSingleOutput').calendarsPicker('setDate', newdate)
+		})
+	</script>
+</fieldset>
 </body>
 </html>

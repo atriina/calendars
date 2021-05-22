@@ -11,3 +11,7 @@ This plugin provides support for various world calendars, including a datepicker
 Have a look at the plugin Web site, http://keith-wood.name/calendars.html, for demonstrations of its abilities.
 
 For documentation on the functionality see http://keith-wood.name/calendarsRef.html.
+
+===
+`bower install`
+`yarn install`
